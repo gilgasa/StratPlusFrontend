@@ -1,0 +1,61 @@
+<div class="layout">
+
+    <div class="container d-flex flex-column">
+        <div class="row align-items-center justify-content-center no-gutters min-vh-100">
+
+            <div class="col-12 col-md-5 col-lg-4 py-8 py-md-11">
+
+                <!-- Heading -->
+                <h1 class="font-bold text-center">Registrate</h1>
+
+                <!-- Text -->
+                <p class="text-center mb-6">Se parte de nuestra comunidad.</p>
+
+                <!-- Form -->
+                <form class="mb-6" #registroForm="ngForm" (ngSubmit)="onSubmit(registroForm)">
+
+                    <!-- Name -->
+                    <div class="form-group">
+                        <label for="name" class="sr-only">Nombres</label>
+                        <input type="text" class="form-control form-control-lg" id="name" placeholder="Ingrese su nombre" #nombre="ngModel" name="nombre" [(ngModel)]="user.nombre" required>
+                        <div *ngIf="nombre.invalid && (nombre.dirty || nombre.touched)" style="width: 100%">
+                            <div class="invalid-feedback" *ngIf="nombre.errors.required">
+                                Los nombre son requeridos
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Email -->
+                    <div class="form-group">
+                        <label for="email" class="sr-only">Email</label>
+                        <input type="email" class="form-control form-control-lg" id="email" placeholder="Ingrese su correo" #email="ngModel" name="email" [(ngModel)]="user.email" required>
+                        <div *ngIf="email.invalid && (email.dirty || email.touched)" style="width: 100%">
+                            <div class="invalid-feedback" *ngIf="email.errors.required">
+                                El email son requeridos
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Password -->
+                    <div class="form-group">
+                        <label for="password" class="sr-only">Contraseña</label>
+                        <input type="password" class="form-control form-control-lg" id="password" placeholder="Ingrese su contraseña" #password="ngModel" name="password" [(ngModel)]="user.password" required>
+                        <div *ngIf="password.invalid && (password.dirty || password.touched)" style="width: 100%">
+                            <div class="invalid-feedback" *ngIf="password.errors.required">
+                                La contraseña son requeridos
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Submit -->
+                    <button class="btn btn-lg btn-block btn-primary" type="submit">Registrarse</button>
+                </form>
+
+                <!-- Text -->
+                
+
+            </div>
+        </div> <!-- / .row -->
+    </div>
+
+</div><!-- .layout -->
